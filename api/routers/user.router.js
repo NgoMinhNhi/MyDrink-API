@@ -11,5 +11,6 @@ router.route('/:id')
   .put(UserController.editUser);
 router.route('/login')
   .post(UserController.login);
-
+router.route('/get-all-user')
+  .post(UserController.getAllUser);
 export default router;

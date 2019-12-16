@@ -45,7 +45,17 @@ export async function getUser(req, res) {
     return res.status(err.status).json(err);
   }
 }
-
+export async function getAllUser(req, res) {
+  try {
+    let data = await User_Service.getAllUser();
+    return res.json({
+      success: true,
+      data
+    })
+  } catch (err) {
+    return res.status(err.status).json(err);
+  }
+}
 export async function deleteUser(req, res) {
   try {
     let id = req.params.id;

@@ -17,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "@google-cloud/pubsub": "^0.20.1",
+    "@k-will/core-database": "^1.0.8",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-polyfill": "^6.26.0",

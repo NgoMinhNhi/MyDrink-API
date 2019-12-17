@@ -5,7 +5,7 @@ import {isObjectId} from '../libs/StringHelper';
 export async function createUser(req, res) {
   try {
     let options = req.body;
-    if(!options.password || !options.email || !options.userName || !options.phoneNumber) {
+    if(!options.password || !options.userName || !options.phoneNumber) {
       throw {
         status: 400,
         success: false,
@@ -16,7 +16,9 @@ export async function createUser(req, res) {
     let data = await User_Service.createUser(options);
     return res.json({
       success: true,
-      data
+      data,
+      _id: data._id,
+      isAdmin: data.isAdmin
     })
   } catch (err) {
     return res.status(err.status).json(err);

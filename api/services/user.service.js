@@ -72,14 +72,13 @@ export async function login(options) {
     if(validate(user.password, options.password)){
       return {
         success: true,
-        _id : data._id,
-        userName: data.userName,
-        email : data.email,
-        address: data.address,
-        phoneNumber: data.phoneNumber,
-        isAdmin : data.isAdmin,
-        status : data.status,
-        data: user,
+        _id : user._id,
+        userName: user.userName,
+        email : user.email,
+        address: user.address,
+        phoneNumber: user.phoneNumber,
+        isAdmin : user.isAdmin,
+        status : user.status,
         token: JWT.issue({_id: user._id}),
         expired: 1800000
       }

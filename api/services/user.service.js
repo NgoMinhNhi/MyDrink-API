@@ -71,7 +71,7 @@ export async function login(options) {
     }
     if(validate(user.password, options.password)){
       return {
-        success: true,
+        // success: true,
         _id : user._id,
         userName: user.userName,
         email : user.email,
@@ -79,8 +79,8 @@ export async function login(options) {
         phoneNumber: user.phoneNumber,
         isAdmin : user.isAdmin,
         status : user.status,
-        token: JWT.issue({_id: user._id}),
-        expired: 1800000
+        // token: JWT.issue({_id: user._id}),
+        // expired: 1800000
       }
     } else {
       return Promise.reject({success: false, status: 400, error:'Invalid Password.'});

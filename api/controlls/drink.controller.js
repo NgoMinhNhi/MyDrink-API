@@ -5,8 +5,7 @@ export async function createDrink(req, res) {
       let options = req.body;
       if(!options.name 
         || !options.price 
-        || !options.size 
-        || !options.imgSrc) {
+        || !options.size) {
         throw {
           status: 400,
           success: false,

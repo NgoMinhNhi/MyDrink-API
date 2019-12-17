@@ -39,13 +39,7 @@ export async function getUser(req, res) {
     let data = await User_Service.getUser(options);
     return res.json({
       success: true,
-      _id : data._id,
-      userName: data.userName,
-      email : data.email,
-      address: data.address,
-      phoneNumber: data.phoneNumber,
-      isAdmin : data.isAdmin,
-      status : data.status
+      data
     })
   } catch (err) {
     return res.status(err.status).json(err);

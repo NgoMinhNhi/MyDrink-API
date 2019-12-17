@@ -4,8 +4,7 @@ export async function createDrink(req, res) {
     try {
       let options = req.body;
       if(!options.name 
-        || !options.price 
-        || !options.size) {
+        || !options.price) {
         throw {
           status: 400,
           success: false,

@@ -38,7 +38,7 @@ export async function getUser(options) {
 }
 export async function getAllUser() {
   try {
-    let data = await User.find.lean();
+    let data = await User.find().lean();
     delete data.password;
     return data;
   } catch (err) {

@@ -45,10 +45,11 @@ export async function createDrink(req, res) {
   export async function getAllDrink(req, res) {
     try {
       let data = await Drink_Service.getAllDrink();
-      return res.json({
-        // success: true,
-        listDrinks: data
-      })
+      // return res.json({
+      //   // success: true,
+      //   listDrinks: data
+      // })
+      return res.json(data)
     } catch (err) {
       return res.status(err.status).json(err);
     }

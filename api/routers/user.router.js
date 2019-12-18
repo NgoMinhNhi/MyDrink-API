@@ -5,12 +5,13 @@ const router = new Router();
 
 router.route('/registry')
   .post(UserController.createUser);
+router.route('/get-all-user')
+  .get(UserController.getAllUser);
 router.route('/:id')
   .delete( UserController.deleteUser)
   .get(UserController.getUser)
   .put(UserController.editUser);
 router.route('/login')
   .post(UserController.login);
-router.route('/get-all-user')
-  .get(UserController.getAllUser);
+
 export default router;

@@ -39,10 +39,7 @@ export async function getUser(req, res) {
       id
     };
     let data = await User_Service.getUser(options);
-    return res.json({
-      success: true,
-      data
-    })
+    return res.json(data)
   } catch (err) {
     return res.status(err.status).json(err);
   }

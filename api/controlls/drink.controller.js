@@ -45,13 +45,6 @@ export async function createDrink(req, res) {
   export async function getProductByStatus(req, res) {
     try {
       let status = req.params.status;
-      if(!isObjectId(id)){
-        throw {
-          status: 400,
-          success: false,
-          error: 'Invalid Params'
-        }
-      }
       let options = {
         status
       };

@@ -45,10 +45,7 @@ export async function createOrder(req, res) {
   export async function getAllOrder(req, res) {
     try {
       let data = await Order_Service.getAllOrder();
-      return res.json({
-        success: true,
-        data
-      })
+      return res.json(data)
     } catch (err) {
       return res.status(err.status).json(err);
     }

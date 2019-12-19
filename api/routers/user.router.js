@@ -7,6 +7,8 @@ router.route('/registry')
   .post(UserController.createUser);
 router.route('/get-all-user')
   .get(UserController.getAllUser);
+router.route('/get-user-by-phone/:phone')
+  .get(UserController.getUserByPhone);
 router.route('/:id')
   .delete( UserController.deleteUser)
   .get(UserController.getUser)

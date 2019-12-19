@@ -55,7 +55,9 @@ export async function getUserByPhone(req, res) {
       phone
     };
     let data = await User_Service.getUserByPhone(options);
-    return res.json(data)
+    if (data.length == 1) {
+      return res.json(data[0])
+    } else return res.json(null)
   } catch (err) {
     return res.status(err.status).json(err);
   }

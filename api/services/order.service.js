@@ -36,7 +36,7 @@ export async function getOrder(options) {
 }
 export async function getAllOrder() {
     try {
-      let data = await Order.find().lean();
+      let data = await Order.find().sort({_id : -1}).lean();
       return data;
     } catch (err) {
       console.log('error getAllOrder : ', err);

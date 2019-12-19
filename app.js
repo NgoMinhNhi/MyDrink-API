@@ -20,6 +20,7 @@ const http = require('http');
 const socketio = require('socket.io');
 const port = normalizePort(process.env.PORT || 8001);
 const server = http.createServer(app);
+var cors = require('cors')
 const io = socketio.listen(server);
 // import model sql
 // require('./api/models')
@@ -32,6 +33,7 @@ mongoose.connect(configs.mongoURL,(err)=>{
 /**
  * Use, Set
  */
+app.use(cors())
 app.use(morgan("dev"));
 app.set("views",path.join(__dirname, "views"));
 app.set("view engine","ejs");

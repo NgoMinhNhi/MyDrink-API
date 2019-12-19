@@ -36,6 +36,17 @@ export async function getUser(options) {
     return Promise.reject({status: 500, success: true, error: 'Internal Server Error.'})
   }
 }
+
+export async function getUserByPhone(options) {
+  try {
+    let data = await User.find({phoneNumber : options.phone}).lean();
+    delete data.password;
+    return data;
+  } catch (err) {
+    console.log('error getUserByPhone : ', err);
+    return Promise.reject({status: 500, success: true, error: 'Internal Server Error.'})
+  }
+}
 export async function getAllUser() {
   try {
     let data = await User.find().lean();

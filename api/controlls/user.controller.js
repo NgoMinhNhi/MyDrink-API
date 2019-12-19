@@ -47,6 +47,22 @@ export async function getUser(req, res) {
     return res.status(err.status).json(err);
   }
 }
+
+export async function getUserByPhone(req, res) {
+  try {
+    let phone = req.params.phone;
+    let options = {
+      phone
+    };
+    let data = await User_Service.getUserByPhone(options);
+    return res.json({
+      success: true,
+      data
+    })
+  } catch (err) {
+    return res.status(err.status).json(err);
+  }
+}
 export async function getAllUser(req, res) {
   try {
     let data = await User_Service.getAllUser();

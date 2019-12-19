@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const Order = new Schema({
   userId: {type: String, required: true, index: 1},
-  phoneNumber: {type: String},
-  address: { type: String },
+  phoneNumber: {type: String, default: ''},
+  address: { type: String, default: '' },
   timeOrder: { type: Date, default: Date.now},
   timeService: { type: Date, },
   listItem: { type: Array},

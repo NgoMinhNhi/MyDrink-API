@@ -38,6 +38,24 @@ export async function getDrink(options) {
     return Promise.reject({status: 500, success: true, error: 'Internal Server Error.'})
   }
 }
+export async function getProductByStatus(options) {
+  try {
+    let data = await Drink.find({status : options.status}).lean();
+    return data;
+  } catch (err) {
+    console.log('error getDrink : ', err);
+    return Promise.reject({status: 500, success: true, error: 'Internal Server Error.'})
+  }
+}
+export async function getProductByType(options) {
+  try {
+    let data = await Drink.find({type : options.type}).lean();
+    return data;
+  } catch (err) {
+    console.log('error getDrink : ', err);
+    return Promise.reject({status: 500, success: true, error: 'Internal Server Error.'})
+  }
+}
 export async function getAllDrink() {
     try {
       let data = await Drink.find().lean();

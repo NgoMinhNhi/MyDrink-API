@@ -42,6 +42,44 @@ export async function createDrink(req, res) {
       return res.status(err.status).json(err);
     }
   }
+  export async function getProductByStatus(req, res) {
+    try {
+      let status = req.params.status;
+      if(!isObjectId(id)){
+        throw {
+          status: 400,
+          success: false,
+          error: 'Invalid Params'
+        }
+      }
+      let options = {
+        status
+      };
+      let data = await Drink_Service.getProductByStatus(options);
+      return res.json(data)
+    } catch (err) {
+      return res.status(err.status).json(err);
+    }
+  }
+  export async function getProductByType(req, res) {
+    try {
+      let type = req.params.type;
+      if(!isObjectId(id)){
+        throw {
+          status: 400,
+          success: false,
+          error: 'Invalid Params'
+        }
+      }
+      let options = {
+        type
+      };
+      let data = await Drink_Service.getProductByType(options);
+      return res.json(data)
+    } catch (err) {
+      return res.status(err.status).json(err);
+    }
+  }
   export async function getAllDrink(req, res) {
     try {
       let data = await Drink_Service.getAllDrink();

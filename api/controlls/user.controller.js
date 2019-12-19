@@ -103,9 +103,9 @@ export async function editUser(req, res) {
 
 export async function login(req, res) {
   try {
-    let userName = req.body.userName;
+    let phoneNumber = req.body.phoneNumber;
     let password = req.body.password;
-    if(!userName || !password) {
+    if(!phoneNumber || !password) {
       throw {
         success: false,
         status: 400,
@@ -113,7 +113,7 @@ export async function login(req, res) {
       }
     }
     let options ={
-      userName,
+      phoneNumber,
       password
     };
     let data = await User_Service.login(options);

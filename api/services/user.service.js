@@ -65,7 +65,7 @@ export async function deleteUser(options) {
 
 export async function login(options) {
   try {
-    let user = await User.findOne({userName: options.userName}).lean();
+    let user = await User.findOne({phoneNumber: options.phoneNumber}).lean();
     if(!user){
       return Promise.reject({status: 400, success: false, error: 'User not found.'})
     }

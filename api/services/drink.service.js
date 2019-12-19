@@ -40,7 +40,7 @@ export async function getDrink(options) {
 }
 export async function getProductByStatus(options) {
   try {
-    let data = await Drink.find({status : options.status}).sort({_id : -1}).lean();
+    let data = await Drink.find({status : options.status}).sort({_id : -1}).limit(8).lean();
     return data;
   } catch (err) {
     console.log('error getDrink : ', err);
@@ -49,7 +49,7 @@ export async function getProductByStatus(options) {
 }
 export async function getProductByType(options) {
   try {
-    let data = await Drink.find({type : options.type}).sort({_id : -1}).lean();
+    let data = await Drink.find({type : options.type}).sort({_id : -1}).limit(8).lean();
     return data;
   } catch (err) {
     console.log('error getDrink : ', err);

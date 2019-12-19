@@ -57,13 +57,6 @@ export async function createDrink(req, res) {
   export async function getProductByType(req, res) {
     try {
       let type = req.params.type;
-      if(!isObjectId(id)){
-        throw {
-          status: 400,
-          success: false,
-          error: 'Invalid Params'
-        }
-      }
       let options = {
         type
       };

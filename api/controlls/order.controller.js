@@ -4,8 +4,7 @@ export async function createOrder(req, res) {
     try {
       let options = req.body;
       if(!options.userId 
-        || !options.address
-        || !options.listItem) {
+        ) {
         throw {
           status: 400,
           success: false,

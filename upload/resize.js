@@ -6,12 +6,12 @@ class Resize {
   constructor(folder) {
     this.folder = folder;
   }
-  async save(buffer, width = 192, height = 246) {
+  async save(buffer) {
     const filename = Resize.filename();
     const filepath = this.filepath(filename);
 
     await sharp(buffer)
-      .resize(width, height, { // size image 300x300
+      .resize(192, 246, { // size image 300x300
         fit: _fit.inside,
         withoutEnlargement: true
       })

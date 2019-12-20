@@ -9,7 +9,7 @@ const Drink = new Schema({
   imgSrc: { type: String},
   detail : { type:  String},
   totalLikes : { type: Number, default: 0},
-  status: {type: String, enum: ['Available', 'Hot', 'Percent Off', 'Out Stock', 'Deleted'], default: 'Available'}, // 1: available, 0:unavailable
+  status: {type: String, enum: ['Available', 'New', 'Hot', 'Percent Off', 'Out Stock', 'Deleted'], default: 'Available'}, // 1: available, 0:unavailable
 });
 
 export default mongoose.model('drink', Drink);

@@ -43,6 +43,17 @@ export async function getAllOrder() {
       return Promise.reject({status: 500, success: true, error: 'Internal Server Error.'})
     }
   }
+
+  export async function getByUser(options) {
+    try {
+      let data = await Order.find({userId : options.id}).sort({_id : -1}).lean();
+      return data;
+    } catch (err) {
+      console.log('error getAllOrder : ', err);
+      return Promise.reject({status: 500, success: true, error: 'Internal Server Error.'})
+    }
+  }
+  getByUser
 export async function deleteOrder(options) {
   try {
     await Order.updateOne({

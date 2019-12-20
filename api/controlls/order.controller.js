@@ -44,12 +44,29 @@ export async function createOrder(req, res) {
   }
   export async function getAllOrder(req, res) {
     try {
-      let data = await Order_Service.getAllOrder();
+      let id = req.params.id;
+      let options = {
+        id
+      };
+      let data = await Order_Service.getAllOrder(options);
       return res.json(data)
     } catch (err) {
       return res.status(err.status).json(err);
     }
   }
+  export async function getByUser(req, res) {
+    try {
+      let id = req.params.id;
+      let options = {
+        id
+      };
+      let data = await Order_Service.getByUser(options);
+      return res.json(data)
+    } catch (err) {
+      return res.status(err.status).json(err);
+    }
+  }
+  getByUser
   export async function deleteOrder(req, res) {
     try {
       let id = req.params.id;

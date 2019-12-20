@@ -4,7 +4,9 @@ const router = new Router();
 router.route('/create-order')
   .post(OrderController.createOrder);
 router.route('/get-all-order')
-	.get(OrderController.getAllOrder)
+  .get(OrderController.getAllOrder)
+router.route('/get-by-user/:id')
+	.get(OrderController.getByUser)
 router.route('/:id')
   .delete(OrderController.deleteOrder)
   .get(OrderController.getOrder)

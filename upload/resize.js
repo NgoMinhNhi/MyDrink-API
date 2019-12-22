@@ -16,7 +16,7 @@ class Resize {
         withoutEnlargement: true
       })
       .toFile(filepath);
-    
+    console.log('chạy vô đây')
     return filename;
   }
   static filename() {

@@ -12,10 +12,7 @@ export async function createOrder(req, res) {
         }
       }
       let data = await Order_Service.createOrder(options);
-      return res.json({
-        success: true,
-        data
-      })
+      return res.json(data)
     } catch (err) {
       return res.status(err.status).json(err);
     }
@@ -34,10 +31,7 @@ export async function createOrder(req, res) {
         id
       };
       let data = await Order_Service.getOrder(options);
-      return res.json({
-        success: true,
-        data
-      })
+      return res.json(data)
     } catch (err) {
       return res.status(err.status).json(err);
     }
@@ -81,9 +75,7 @@ export async function createOrder(req, res) {
         id
       };
       let data = await Order_Service.deleteOrder(options);
-      return res.json({
-        success: data
-      })
+      return res.json(data)
     } catch (err) {
       return res.status(err.status).json(err);
     }
@@ -101,10 +93,7 @@ export async function editOrder(req, res) {
         }
       }
       let data = await Order_Service.editOrder(options);
-      return res.json({
-        success: true,
-        data
-      })
+      return res.json(data)
     } catch (err) {
       return res.status(err.status).json(err);
     }

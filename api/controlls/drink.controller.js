@@ -12,10 +12,7 @@ export async function createDrink(req, res) {
         }
       }
       let data = await Drink_Service.createDrink(options);
-      return res.json({
-        success: true,
-        data
-      })
+      return res.json(data)
     } catch (err) {
       return res.status(err.status).json(err);
     }
@@ -34,10 +31,7 @@ export async function createDrink(req, res) {
         id
       };
       let data = await Drink_Service.getDrink(options);
-      return res.json({
-        success: true,
-        data
-      })
+      return res.json(data)
     } catch (err) {
       return res.status(err.status).json(err);
     }
@@ -69,10 +63,6 @@ export async function createDrink(req, res) {
   export async function getAllDrink(req, res) {
     try {
       let data = await Drink_Service.getAllDrink();
-      // return res.json({
-      //   // success: true,
-      //   listDrinks: data
-      // })
       return res.json(data)
     } catch (err) {
       return res.status(err.status).json(err);
@@ -92,9 +82,7 @@ export async function createDrink(req, res) {
         id
       };
       let data = await Drink_Service.deleteDrink(options);
-      return res.json({
-        success: data
-      })
+      return res.json(data)
     } catch (err) {
       return res.status(err.status).json(err);
     }
@@ -112,10 +100,7 @@ export async function editDrink(req, res) {
         }
       }
       let data = await Drink_Service.editDrink(options);
-      return res.json({
-        success: true,
-        data
-      })
+      return res.json(data)
     } catch (err) {
       return res.status(err.status).json(err);
     }

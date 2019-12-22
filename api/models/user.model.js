@@ -5,6 +5,7 @@ const User = new Schema({
   userName: {type: String, required:true, index: 1},
   password: {type: String, required: true, index: 1},
   phoneNumber: {type: String, required: true, index: 1},
+  imgSrc: {type : String},
   email: {type: String, index: 1},
   address: {type: String, index: 1},
   status: {type: String, enum: ['actived', 'deleted'], default: 'actived'},

@@ -14,12 +14,7 @@ export async function createUser(req, res) {
     }
     options.password = hash(options.password);
     let data = await User_Service.createUser(options);
-    return res.json({
-      success: true,
-      data,
-      _id: data._id,
-      isAdmin: data.isAdmin
-    })
+    return res.json(data)
   } catch (err) {
     return res.status(err.status).json(err);
   }
@@ -62,10 +57,7 @@ export async function getUserByPhone(req, res) {
 export async function getAllUser(req, res) {
   try {
     let data = await User_Service.getAllUser();
-    return res.json({
-      success: true,
-      data
-    })
+    return res.json(data)
   } catch (err) {
     return res.status(err.status).json(err);
   }
@@ -84,9 +76,7 @@ export async function deleteUser(req, res) {
       id
     };
     let data = await User_Service.deleteUser(options);
-    return res.json({
-      success: data
-    })
+    return res.json(data)
   } catch (err) {
     return res.status(err.status).json(err);
   }
@@ -104,10 +94,7 @@ export async function editUser(req, res) {
       }
     }
     let data = await User_Service.editUser(options);
-    return res.json({
-      success: true,
-      data
-    })
+    return res.json(data)
   } catch (err) {
     return res.status(err.status).json(err);
   }

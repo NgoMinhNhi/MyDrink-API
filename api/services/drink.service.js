@@ -17,6 +17,7 @@ export async function editDrink(options) {
     drink.name = options.name || drink.name;
     drink.price = options.price || drink.price;
     drink.size = options.size || drink.size;
+    drink.type = option.type || drink.type;
     drink.imgSrc = options.imgSrc || drink.imgSrc;
     drink.description = options.description || drink.description;
     drink.totalLikes = options.totalLikes || drink.totalLikes;

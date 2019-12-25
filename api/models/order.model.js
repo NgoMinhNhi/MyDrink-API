@@ -8,7 +8,7 @@ const Order = new Schema({
   timeOrder: { type: Date, default: Date.now},
   timeService: { type: Date},
   listItem: { type: Array},
-  status: {type: String, enum: ['new', 'seen', 'confirm', 'doing', 'service', 'reject'], default: 'new'},
+  status: {type: String, enum: ['Wait Confirm', 'Doing', 'Serviced', 'Reject'], default: 'Wait Confirm'},
 });
 
 export default mongoose.model('order', Order);

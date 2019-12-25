@@ -21,6 +21,7 @@ export async function editOrder(options) {
     order.phoneNumber = options.phoneNumber || order.phoneNumber;
     order.address = options.address || order.address;
     order.timeOrder = options.timeOrder || order.timeOrder;
+    order.status = options.status || order.status;
     await order.save();
     return order;
   } catch (err) {

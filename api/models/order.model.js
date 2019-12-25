@@ -5,7 +5,7 @@ const Order = new Schema({
   userId: {type: String, required: true, index: 1},
   phoneNumber: {type: String, default: ''},
   address: { type: String, default: '' },
-  timeOrder: { type: Date, default: Date.now + 7*3600*1000},
+  timeOrder: { type: Date, default: Date.now},
   timeService: { type: Date},
   listItem: { type: Array},
   status: {type: String, enum: ['new', 'seen', 'confirm', 'doing', 'service', 'reject'], default: 'new'},

@@ -3,6 +3,7 @@ import {isObjectId} from '../libs/StringHelper';
 export async function createOrder(req, res) {
   try {
     let options = req.body;
+    console.log(options)
     if(!options.userId
       ) {
       throw {

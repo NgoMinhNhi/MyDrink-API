@@ -7,6 +7,7 @@ import mongoose from "mongoose";
 import morgan from "morgan";
 import path from "path";
 import configs from './api/config';
+import Socket from './socket/init'
 /**
  * Router variables
  */
@@ -49,6 +50,8 @@ app.use('/api',routers);
 /**
  * Socket IO
  */
+let socket = new Socket(app);
+socket.init();
 /**
  * Socket IO
  */

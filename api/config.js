@@ -42,5 +42,8 @@ export default {
   kueUI: {
     port: 3055
   },
-  projectId:'ancient-sandbox-219904'
+  projectId:'ancient-sandbox-219904',
+  socket: {
+    port: 3066
+  },
 };

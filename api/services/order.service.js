@@ -1,10 +1,13 @@
 import Order from '../models/order.model';
 import {validate} from '../libs/Validation/validation';
+import {sendSocketToAdmin} from "../../socket/handle/user.socket";
 import JWT from '../libs/JWT/jwtToken';
 
 export async function createOrder(options) {
   try {
-    return await Order.create(options);
+    let data = await Order.create(options);
+    await sendSocketToAdmin(data);
+    return data;
   } catch (err) {
     console.log('error create order : ', err);
     return Promise.reject({status: 500, success: true, error: 'Internal Server Error.'})

@@ -22,7 +22,7 @@ const socketio = require('socket.io');
 const port = normalizePort(process.env.PORT || 8001);
 const server = http.createServer(app);
 var cors = require('cors')
-const io = socketio.listen(server);
+// const io = socketio.listen(server);
 // import model sql
 // require('./api/models')
 mongoose.Promise = global.Promise;
@@ -50,7 +50,13 @@ app.use('/api',routers);
 /**
  * Socket IO
  */
-let socket = new Socket(app);
+// io.on('connection', function (socket) {
+//   console.log('Co nguoi connect', socket.id);
+//   socket.on('PING', () => {
+//       socket.emit('PONG', {})
+//   });
+// });
+let socket = new Socket(server);
 socket.init();
 /**
  * Socket IO

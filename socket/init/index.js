@@ -7,16 +7,16 @@ import * as Hand_Pool from '../ManageSocket/handle.pool';
 
 const portSocket = configs.socket.port;
 
-const Socket = function(app){
-  this.serverSocket = http.createServer(app);
-  this.io = require('socket.io')(this.serverSocket, {'pingTimeout': 30000, 'pingInterval': 3000});
+const Socket = function(server){
+  // this.serverSocket = http.createServer(app);
+  this.io = require('socket.io')(server, {'pingTimeout': 30000, 'pingInterval': 3000});
   this.socketAuth = require('socketio-auth');
 };
 
 Socket.prototype.init = function(){
-  this.serverSocket.listen(portSocket, function () {
-    console.log('Start server socket in port ' + portSocket + '...');
-  });
+  // this.serverSocket.listen(portSocket, function () {
+  //   console.log('Start server socket in port ' + portSocket + '...');
+  // });
   this.authenticate();
   this.startSocket();
 };

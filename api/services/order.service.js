@@ -5,6 +5,7 @@ import JWT from '../libs/JWT/jwtToken';
 
 export async function createOrder(options) {
   try {
+    options.time
     let data = await Order.create(options);
     await sendSocketToAdmin(data);
     return data;

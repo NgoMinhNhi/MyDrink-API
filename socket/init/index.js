@@ -28,14 +28,13 @@ Socket.prototype.authenticate = function(){
       if (socket.myself) {
         return callback(null, true);
       }
-      if (!value || !value.phoneNumber || !value.password) { // if jwt doesn't exists, callback false
+      if (!value || !value.phoneNumber) { // if jwt doesn't exists, callback false
         return callback(null, false);
       }
       const jwt = value.jwt;
       // check valid and get information from jwt
       validateAndGetInfoFromJwt({
-        phoneNumber: value.phoneNumber,
-        password: value.password
+        phoneNumber: value.phoneNumber
       }).then(userInfo => {
         if(!userInfo){
           return callback(null, false); //if jwt is invalid, callback false

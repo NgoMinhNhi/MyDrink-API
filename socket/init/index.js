@@ -25,17 +25,20 @@ Socket.prototype.init = function(){
 Socket.prototype.authenticate = function(){
   this.socketAuth(this.io, {
     authenticate: function (socket, value, callback) {
+      console.log('qqqqqqqqqqqqqqq')
+      console.log(value)
       if (socket.myself) {
         return callback(null, true);
       }
-      if (!value || !value.phoneNumber) { // if jwt doesn't exists, callback false
+      if (!value) { // if jwt doesn't exists, callback false
         return callback(null, false);
       }
       const jwt = value.jwt;
       // check valid and get information from jwt
       validateAndGetInfoFromJwt({
-        phoneNumber: value.phoneNumber
+        phoneNumber: value
       }).then(userInfo => {
+        console.log('zzzzzzzzzzzzz')
         if(!userInfo){
           return callback(null, false); //if jwt is invalid, callback false
         }

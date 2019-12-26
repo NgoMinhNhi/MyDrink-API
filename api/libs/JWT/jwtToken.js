@@ -12,6 +12,7 @@ module.exports = {
 
   // Verifies token on a request
   verify: (token, callback) => {
+    console.log("verify")
     return jwt.verify(token, configs.JWT_SECRET, callback);
   },
   ONE_MONTH : 2592000000,

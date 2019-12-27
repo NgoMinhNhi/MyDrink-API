@@ -7,9 +7,9 @@ import {verifyToken} from "../api/libs/JWT/verify.token";
  * else return object which contains userid and type of user
  * @param jwt
  */
-export async function validateAndGetInfoFromJwt(jwt){
+export async function validateAndGetInfoFromJwt(value){
   try {
-    let rs = await verifyToken(jwt);
+    let rs = await verifyToken(value);
     console.log(rs);
     if(rs.success) {
       return rs.data;

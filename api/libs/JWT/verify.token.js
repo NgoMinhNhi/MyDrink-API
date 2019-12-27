@@ -5,7 +5,7 @@ import {validate} from "../Validation/validation";
 export async function verifyToken(options) {
   try{
     console.log(options);
-    let user = await User.findOne({_id: options.phoneNumber}).lean();
+    let user = await User.findById(options).lean();
     if(user){
       // if(validate(user.password, options.password)) {
         /**

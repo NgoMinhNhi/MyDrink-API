@@ -35,9 +35,9 @@ Socket.prototype.authenticate = function(){
       }
       const jwt = value.jwt;
       // check valid and get information from jwt
-      validateAndGetInfoFromJwt({
-        phoneNumber: value
-      }).then(userInfo => {
+      validateAndGetInfoFromJwt(
+        value
+      ).then(userInfo => {
         console.log('zzzzzzzzzzzzz')
         if(!userInfo){
           return callback(null, false); //if jwt is invalid, callback false

@@ -2,7 +2,7 @@ import configs from "../../api/config";
 import utils from '../../utils/utils';
 const http = require('http');
 import statusConstant from '../../common/constants/socketType';
-import {validateAndGetInfoFromJwt} from "../lib";
+import {validateAndGetInfoFrom} from "../lib";
 import * as Hand_Pool from '../ManageSocket/handle.pool';
 
 const portSocket = configs.socket.port;
@@ -25,28 +25,25 @@ Socket.prototype.init = function(){
 Socket.prototype.authenticate = function(){
   this.socketAuth(this.io, {
     authenticate: function (socket, value, callback) {
-      console.log('qqqqqqqqqqqqqqq')
-      console.log(value)
       if (socket.myself) {
         return callback(null, true);
       }
-      if (!value) { // if jwt doesn't exists, callback false
+      if (!value) { 
         return callback(null, false);
       }
       const jwt = value.jwt;
-      // check valid and get information from jwt
-      validateAndGetInfoFromJwt(
+ 
+      validateAndGetInfoFrom(
         value
       ).then(userInfo => {
-        console.log('zzzzzzzzzzzzz')
         if(!userInfo){
-          return callback(null, false); //if jwt is invalid, callback false
+          return callback(null, false); 
         }
         socket.myself = {
           uid: utils.generateCode(),
           ...userInfo
         };
-        Hand_Pool.addPool(socket); // add socket to pool
+        Hand_Pool.addPool(socket);
         socket.emit(statusConstant.SocketMessage.Authenticated, {result: true});
         callback(null, true);
       })
